@@ -13,6 +13,27 @@
 | 提醒调度 | 定时轮询到期任务，通过 Webhook 发送提醒消息 |
 | 个人设置 | 头像上传、密码修改、令牌/Webhook/提醒配置 |
 
+## 预览
+
+<table>
+  <tr>
+    <td><img src="screenshot-dashboard.png" alt="首页仪表盘" width="100%"></td>
+    <td><img src="screenshot-tasks.png" alt="任务管理" width="100%"></td>
+  </tr>
+  <tr>
+    <td align="center">首页仪表盘</td>
+    <td align="center">任务管理</td>
+  </tr>
+  <tr>
+    <td><img src="screenshot-calendar.png" alt="日历甘特图" width="100%"></td>
+    <td><img src="screenshot-login.png" alt="登录页" width="100%"></td>
+  </tr>
+  <tr>
+    <td align="center">日历甘特图</td>
+    <td align="center">登录页</td>
+  </tr>
+</table>
+
 ## 技术栈
 
 - [Nuxt 4](https://nuxt.com/) + Vue 3 + TypeScript
