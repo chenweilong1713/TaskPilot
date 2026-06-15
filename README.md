@@ -29,8 +29,9 @@
     <td><img src="screenshot-login.png" alt="登录页" width="100%"></td>
   </tr>
   <tr>
-    <td align="center">日历甘特图</td>
-    <td align="center">登录页</td>
+    <td align="center">
+        <img src="wechat.png" alt="日历甘特图" width="100%">
+    </td>
   </tr>
 </table>
 
