@@ -85,8 +85,17 @@ TaskPilot/
 
 ## Docker 部署
 
+### 从 Docker Hub 拉取（推荐）
+
 ```bash
-# 构建镜像
+docker pull cwlunuuc/taskpilot:latest
+```
+
+支持 `linux/amd64` 和 `linux/arm64`，自动匹配架构。
+
+### 本地构建
+
+```bash
 docker build -t taskpilot .
 
 # 运行容器（映射数据目录到宿主机）
