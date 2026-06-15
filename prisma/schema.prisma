@@ -1,0 +1,82 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Task {
+  id        String   @id @default(cuid())
+  title     String
+  tag       String   @default("工作")
+  status    String
+  priority  String
+  createdAt DateTime @default(now())
+  dueTime   DateTime?
+  startTime     DateTime?
+  reminderHours Float?
+  reminded      Boolean  @default(false)
+}
+
+model User {
+  id                String    @id @default(cuid())
+  username          String    @unique
+  passwordHash      String
+  avatarUrl         String?
+  mustResetPassword Boolean   @default(true)
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  sessions          Session[]
+  accessTokens      AccessToken[]
+  webhooks          Webhook[]
+  reminderConfig    ReminderConfig?
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  tokenHash String   @unique
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model AccessToken {
+  id            String    @id @default(cuid())
+  name          String
+  secretHash    String    @unique
+  secretPreview String
+  secret        String
+  userId        String
+  expiresAt     DateTime?
+  lastUsedAt    DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Webhook {
+  id        String   @id @default(cuid())
+  title     String
+  url       String
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model ReminderConfig {
+  id              String   @id @default(cuid())
+  enabled         Boolean  @default(false)
+  intervalMinutes Float    @default(1.0)
+  userId          String   @unique
+  updatedAt       DateTime @updatedAt
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}

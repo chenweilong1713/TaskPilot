@@ -1,0 +1,32 @@
+{
+  "name": "TaskPilot",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "prisma:generate": "prisma generate",
+    "db:init": "sqlite3 prisma/dev.db < prisma/init.sql && prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio"
+  },
+  "dependencies": {
+    "@lucide/vue": "^1.18.0",
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "@pinia/nuxt": "^0.11.3",
+    "@prisma/client": "6.19.0",
+    "chart.js": "^4.5.1",
+    "nuxt": "^4.4.8",
+    "pinia": "^3.0.4",
+    "vue": "^3.5.35",
+    "vue-chartjs": "^5.3.3",
+    "vue-router": "^5.1.0"
+  },
+  "devDependencies": {
+    "prisma": "6.19.0",
+    "typescript": "^6.0.3"
+  }
+}

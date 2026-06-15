@@ -1,0 +1,10 @@
+node_modules
+.output
+.nuxt
+data
+prisma/dev.db
+prisma/dev.db-journal
+prisma/migrations
+.git
+*.md
+.env
